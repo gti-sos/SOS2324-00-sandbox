@@ -1,0 +1,15 @@
+{
+	"id": "e92f641f-ded6-4cea-849d-be948b9c9a58",
+	"name": "GCloud",
+	"values": [
+		{
+			"key": "SERVER",
+			"value": "https://sos2324-00-pfm.ew.r.appspot.com",
+			"type": "default",
+			"enabled": true
+		}
+	],
+	"_postman_variable_scope": "environment",
+	"_postman_exported_at": "2024-03-01T10:49:49.970Z",
+	"_postman_exported_using": "Postman/10.23.7-240226-0504"
+}
