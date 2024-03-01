@@ -37,7 +37,7 @@ module.exports = (app,db) => {
     app.post(API_BASE+"/contacts",(req,res)=>{
         let contact = req.body;
         db.insert(contact);
-        res.sendStatus(201,"Created");
+        res.sendStatus(221,"Created");
     });
 
     app.delete(API_BASE+"/contacts/:name",(req,res)=>{
