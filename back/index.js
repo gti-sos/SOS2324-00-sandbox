@@ -11,7 +11,7 @@ var initialContacts = [
     }
 ];
 
-module.exports = (app,db) => {
+function loadBackend(app,db){
 
     app.get(API_BASE+"/loadInitialContacts",(req,res)=>{
         db.insert(initialContacts);
@@ -58,3 +58,5 @@ module.exports = (app,db) => {
     });
 
 };
+
+export { loadBackend };

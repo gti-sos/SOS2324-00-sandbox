@@ -1,8 +1,8 @@
-let cool = require("cool-ascii-faces");
-let express = require("express");
-let bodyParser = require("body-parser");
-let contactAPI = require("./api-contacts");
-let dataStore = require("nedb");
+import express from "express";
+import bodyParser  from "body-parser";
+import {loadBackend}  from "./back/index.js";
+import dataStore  from "nedb";
+import {handler} from "./front/build/handler.js";
 
 let dbContacts = new dataStore();
 
@@ -12,13 +12,9 @@ const PORT = (process.env.PORT || 10000);
 
 app.use(bodyParser.json());
 
-contactAPI(app,dbContacts);
+loadBackend(app,dbContacts);
 
-app.use("/",express.static("./public"));
-
-app.get("/cool", (req,res)=>{
-    res.send(`<html><body><h1>${cool()}</h1></body></html>`);
-});
+app.use(handler);
 
 app.listen(PORT,()=>{
     console.log(`Server listening on port ${PORT}.`);
