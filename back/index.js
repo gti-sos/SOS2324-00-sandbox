@@ -12,6 +12,8 @@ var initialContacts = [
 ];
 
 function loadBackend(app,db){
+    
+    db.insert(initialContacts);
 
     app.get(API_BASE+"/loadInitialContacts",(req,res)=>{
         db.insert(initialContacts);

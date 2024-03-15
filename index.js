@@ -3,12 +3,15 @@ import bodyParser  from "body-parser";
 import {loadBackend}  from "./back/index.js";
 import dataStore  from "nedb";
 import {handler} from "./front/build/handler.js";
+import cors from "cors";
 
 let dbContacts = new dataStore();
 
 let app = express();
 
 const PORT = (process.env.PORT || 10000);
+
+app.use(cors());
 
 app.use(bodyParser.json());
 
