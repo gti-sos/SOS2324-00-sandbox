@@ -38,6 +38,7 @@ function loadBackend(app,db){
     
     app.post(API_BASE+"/contacts",(req,res)=>{
         let contact = req.body;
+        console.log("New POST with body:"+JSON.stringify(req.body,null,2));
         db.insert(contact);
         res.sendStatus(201,"Created");
     });
