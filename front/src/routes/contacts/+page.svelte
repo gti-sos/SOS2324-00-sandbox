@@ -104,7 +104,7 @@
 
 <ul>
     {#each contacts as contact}
-        <li><a href="/contacts/{contact.name}">{contact.name}</a> {contact.phone} <button on:click="{deleteContact(contact.name)}">Delete</button></li>
+        <li class="contactItem"><a href="/contacts/{contact.name}">{contact.name}</a> {contact.phone} <button on:click="{deleteContact(contact.name)}">Delete</button></li>
     {/each}
     
 </ul>

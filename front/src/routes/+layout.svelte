@@ -5,6 +5,10 @@
 
 </script>
 
+<svelte:head>
+	<title>Contact Manager</title>
+</svelte:head>
+
 <Header/>
 <h1>Contact Manager</h1>
 <hr>

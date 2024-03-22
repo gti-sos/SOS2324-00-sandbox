@@ -5,7 +5,11 @@
   "main": "index.js",
   "scripts": {
     "start": "node index",
-    "test": "npx newman run ./tests/api.json -e ./tests/environments/local.json"
+    "pretest": "npm start &",
+    "test-integration": "npx newman run ./tests/integration/api.json -e ./tests/integration/environments/local.json",
+    "test-e2e": "npx playwright test",
+    "test": "npm run test-integration && npm run test-e2e",
+    "posttest": "kill `ps -uax | grep \"node index\" | grep -v \"grep\" | grep -v \"sh\" | awk '{print $2}'`"
   },
   "author": "pablo",
   "license": "GPL-3.0",
@@ -16,5 +20,9 @@
     "express": "^4.18.2",
     "nedb": "^1.8.0"
   },
-  "type": "module"
+  "type": "module",
+  "devDependencies": {
+    "@playwright/test": "^1.42.1",
+    "@types/node": "^20.11.30"
+  }
 }
